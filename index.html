@@ -134,8 +134,7 @@
                 <h3>Automation</h3>
 
                 <p>
-                    Python, Pandas, Plotly,
-                    PyTest, log analysis,
+                    Python, log analysis,
                     data processing and AI/ML
                 </p>
             </div>
@@ -153,14 +152,24 @@
         <div class="project">
 
             <h3>
-                Automated Cellular Throughput Analyzer
+                Multi-Radio Coexistence Test Automation Framework
             </h3>
 
             <p>
-                Developed Python-based tools for parsing
-                iPerf3 results and analyzing cellular
-                throughput, retransmissions, latency,
-                and performance trends.
+                Manually running coexistence sweeps in the field is slow
+                and hard to repeat exactly the same way twice. I built a
+                Python framework to script those same tests on the bench
+                &mdash; cellular, Wi-Fi, BT, GNSS, and NFC &mdash; so I could
+                run the exact same sequence over and over and actually trust
+                the comparison between runs. The trickier part was building
+                logic to tell the difference between a real RF issue
+                (timing, power, desense) and something that just looked like
+                one but was actually a device bug &mdash; that distinction
+                alone saved a lot of back-and-forth with firmware teams.
+            </p>
+
+            <p class="project-stack">
+                Python, VSA/Spectrum Analyzer control, custom test-sequencer
             </p>
 
         </div>
@@ -169,14 +178,49 @@
         <div class="project">
 
             <h3>
-                AI-Assisted Cellular Log Analysis
+                RF Characterization &amp; KPI Benchmarking Toolkit
             </h3>
 
             <p>
-                Exploring machine-learning and LLM-based
-                techniques for converting modem logs into
-                timelines, anomaly signatures and likely
-                root-cause classifications.
+                This started as a way to stop re-running the same bench
+                measurements by hand &mdash; sensitivity, TX power, EVM,
+                spurious emissions &mdash; every time a new firmware build
+                came in. I scripted the sweeps so results get pulled
+                straight off the VNA/signal generator/spectrum analyzer and
+                checked automatically against 3GPP and operator thresholds.
+                Later I extended it to also log field KPIs like RSRP, SINR,
+                BLER, and throughput over time, so I could spot a regression
+                between builds just by looking at a trend line instead of
+                digging through raw numbers.
+            </p>
+
+            <p class="project-stack">
+                Python, MATLAB, Keysight/R&amp;S instrument drivers
+            </p>
+
+        </div>
+
+
+        <div class="project">
+
+            <h3>
+                Cross-Layer Log Correlator for Handover &amp; Recovery Debug
+            </h3>
+
+            <p>
+                Debugging a handover or recovery failure usually means
+                scrolling through a QXDM log layer by layer &mdash; PHY,
+                MAC, RLC, PDCP, RRC &mdash; trying to line up timestamps in
+                your head. I got tired of doing that manually, so I wrote a
+                parser that ingests the log and lines events up against the
+                connectivity event itself (say, a Wi-Fi-to-cellular handover
+                or an out-of-service recovery), so I can see exactly where
+                in the stack the delay or failure actually started instead
+                of guessing.
+            </p>
+
+            <p class="project-stack">
+                Python, QXDM/QCAT log parsing, pandas
             </p>
 
         </div>
@@ -200,21 +244,6 @@
                 contributing to approximately 5 dB receiver
                 degradation and evaluated system-level
                 mitigation techniques.
-            </p>
-
-        </div>
-
-
-        <div class="achievement">
-
-            <h3>
-                Multi-UE Scheduler Analysis
-            </h3>
-
-            <p>
-                Developed automated analysis for large-scale
-                UE performance characterization and scheduler
-                fairness evaluation.
             </p>
 
         </div>
